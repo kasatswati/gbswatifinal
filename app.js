@@ -1,39 +1,10 @@
-
-/**
- * Module dependencies.
- */
-/*
-var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , http = require('http')
-  , path = require('path');
-
-var app = express();
-*/
-// all environments
-//app.set('port', process.env.PORT || 3000);
-//app.set('views', __dirname + '/views');
-//app.set('view engine', 'jshtml');
-//app.use(express.favicon());
-//app.use(express.logger('dev'));
-//app.use(express.bodyParser());
-//app.use(express.methodOverride());
-//app.use(app.router);
-//app.use(express.static(path.join(__dirname, 'public')));
-
-// development only
-//if ('development' == app.get('env')) {
- // app.use(express.errorHandler());
-//}
-
-//
 var fs      = require('fs');
 var express = require('express');
 var Client = require('node-rest-client').Client;
 var app = express();
 app.use(express.bodyParser());
  
+//page to send values to read and render values at html page
 
 var page = function( req, res, state ) 
 {
@@ -43,9 +14,8 @@ var    body = fs.readFileSync('./views/gumball.jshtml');
 
     var client = new Client();
             var count = "";
-            client.get("http://new_swatik.cfapps.io/gumballs/1", 
+            client.get("http://swatikasat.cfapps.io/gumballs/1", 
                 function(data, response_raw){
-                    console.log("hey");
                     console.log(data);
                     count = data.countGumballs
                     console.log( "count = " + count ) ;
@@ -67,7 +37,7 @@ var order = function( req, res) {
     var client = new Client();
             var count = 0;
       
-            client.get("http://new_swatik.cfapps.io/gumballs/1", 
+            client.get("http://swatikasat.cfapps.io/gumballs/1", 
                 function(data, response_raw){
                     console.log(data);
                     count = data.countGumballs
@@ -81,11 +51,11 @@ var order = function( req, res) {
                     
                     };
                     
-                    client.put("http://new_swatik.cfapps.io/gumballs/1",
+                    client.put("http://swatikasat.cfapps.io/gumballs/1",
                     args,
                     function(data,response_raw){
                     console.log(data);
-                    page(req,res,"no coin")
+                    page(req,res,"no-coin")
                     }
                 );
             });
@@ -100,13 +70,10 @@ var order = function( req, res) {
         var action = "" + req.body.event ;
         if( action == "Insert Quarter" ){
         
-        if( state == "no-coin" ){
+        if( state == "no-coin" )
         page( req, res, "has-coin" ) ;
-        }
-        
-        else{
+        else
         page( req, res, state );
-        }
         }
         
         else if (action=="Turn Crank"){
@@ -132,12 +99,10 @@ app.post("*",handle_post);
 app.get("*",handle_get);
   
 console.log("server running");
-app.listen(8050);
-//
+app.listen(8030);
 
-//app.get('/', routes.index);
-//app.get('/users', user.list);
 
-//http.createServer(app).listen(app.get('port'), function(){
-  //console.log('Express server listening on port ' + app.get('port'));
-//});
+
+
+
+

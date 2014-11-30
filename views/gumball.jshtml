@@ -1,11 +1,11 @@
 
 <html>
 <head>
-    <title>Welcome to the Gumball Machine</title>
+    <title>Welcome to the Gumball Machine_versionSwatiK</title>
 </head>
 
 <body>
-<h1 align="center">Welcome to the Gumball Machine</h1>
+<h1 align="center">Welcome to the Gumball Machine_versionSwatiK</h1>
 
 <!-- FORM SECTION -->
 <form name="gumballform" method="post" action="">
@@ -14,12 +14,12 @@
     <p>
 
     <div align="center">
-        <textarea name="message" cols="50" rows="15" readonly id="message">
+        <textarea name="message" cols="50" rows="20" readonly id="message">
             ${message}
         </textarea>
     </div>
 </p>
-    <p align="center"><img src=" http://www.gumball.com/images/products/display/king-carousel-gumball-machine.jpg"  width="385" height="316"></p>
+    <p align="center"><img src="http://www.candymachines.com/images/bulk_vending_machines/whirler_spiral_gumball_machines/4-whirler-gumball-machine.jpg"  width="385" height="316"></p>
 
     <p align="center">
         <input type="submit" name="event" id="btnInsertQuarter" value="Insert Quarter">
